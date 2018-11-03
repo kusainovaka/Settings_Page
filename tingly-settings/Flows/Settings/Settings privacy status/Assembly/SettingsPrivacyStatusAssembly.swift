@@ -1,0 +1,23 @@
+//
+//  SettingsPrivacyStatusAssembly.swift
+//  tingly-settings
+//
+//  Created by Kamila Kusainova on 18.09.2018.
+//  Copyright © 2018 Liquid Gears. All rights reserved.
+//
+
+import Foundation
+
+class SettingsPrivacyStatusAssembly {
+  static func makePrivacyStatus(coordinator: SettingsCoordinatorInput,
+                                  output: SettingsPrivacyStatusModuleOutput) -> Presentable? {
+    let view = SettingsPrivacyStatusViewController()
+    let interactor = SettingsPrivacyStatusInteractor()
+    let presenter = SettingsPrivacyStatusPresenter(interactor: interactor, moduleOutput: output)
+    view.presenter = presenter
+    presenter.coordinator = coordinator
+    presenter.view = view
+    interactor.presenter = presenter
+    return view
+  }
+}
