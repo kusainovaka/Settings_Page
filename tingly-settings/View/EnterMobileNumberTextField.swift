@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import PhoneNumberKit
+//import PhoneNumberKit
 
 protocol SettingsChangeNumberDelegate {
   func didFillingGap(_ settingsChangeView: EnterMobileNumberTextField, fill: Bool)
@@ -30,7 +30,7 @@ class EnterMobileNumberTextField: UIView {
   var mobileNumberTextView = CorneredTextView()
   let countryPlaceholderLabel = UILabel()
 
-  fileprivate let phoneFormatter = PartialFormatter()
+//  fileprivate let phoneFormatter = PartialFormatter()
   var shouldShowCountryPicker: (()->())?
   var onChangeNumber: ((_ fulfilled: Bool) -> ())?
 
@@ -100,13 +100,13 @@ extension EnterMobileNumberTextField: UITextViewDelegate {
 
   func textViewDidChange(_ textView: UITextView) {
     if textView == mobileNumberTextView {
-        textView.text = phoneFormatter.formatPartial(textView.text)
+//        textView.text = phoneFormatter.formatPartial(textView.text)
         placeholderLabel.isHidden = !textView.text.isEmpty
         onChangeNumber?(textView.text.numbers.count == 10)
     }
     
     if textView == countryCodeTextView {
-        textView.text = phoneFormatter.formatPartial(textView.text)
+//        textView.text = phoneFormatter.formatPartial(textView.text)
         countryPlaceholderLabel.isHidden = !textView.text.isEmpty
         onChangeNumber?(textView.text.numbers.count == 3)
     }

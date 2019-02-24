@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import PhoneNumberKit
+//import PhoneNumberKit
 
 class SettingsDeleteAccountConfirmView: UIView {
     
@@ -47,7 +47,7 @@ class SettingsDeleteAccountConfirmView: UIView {
         return button
   }()
 
-  fileprivate let phoneFormatter = PartialFormatter()
+//  fileprivate let phoneFormatter = PartialFormatter()
   var shouldShowCountryPicker: (()->())?
   var onChangeNumber: ((_ fulfilled: Bool) -> ())?
     
@@ -134,7 +134,7 @@ extension SettingsDeleteAccountConfirmView: UITextViewDelegate {
 
   func textViewDidChange(_ textView: UITextView) {
     if textView == mobileNumberTextView {
-        textView.text = phoneFormatter.formatPartial(textView.text)
+//        textView.text = phoneFormatter.formatPartial(textView.text)
         placeholderLabel.isHidden = !textView.text.isEmpty
         onChangeNumber?(textView.text.numbers.count == 10)
     }
